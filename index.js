@@ -1,7 +1,7 @@
 // linebot-fb-course.js
 const line = require('@line/bot-sdk');
 const express = require('express');
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer-core');
 const dayjs = require('dayjs');
 const app = express();
 
