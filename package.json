@@ -15,4 +15,10 @@
     "express": "^5.1.0",
     "puppeteer": "^24.10.2"
   }
+  "scripts": {
+  "start": "node index.js"
+  },
+  "engines": {
+  "node": "18.x"
+  }
 }
