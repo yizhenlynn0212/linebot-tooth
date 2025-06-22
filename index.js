@@ -6,19 +6,22 @@ const dayjs = require('dayjs');
 const app = express();
 
 const config = {
-    channelAccessToken: '1/8Anxuj6rdoH3f0RMtLCOGTZXdP+lCR4oiyM9fgFs5cL9xaSveEsqiE29p4EYtF9l0mUdsaE3peaIknzAtj+8IQmrLQp77ibqvy5hHUe6DX1SZr69MhkgdUV9GMhtf9DGbT63HcFHH6W+eX2fnZVAdB04t89/1O/w1cDnyilFU=',
-    channelSecret: '2081846d048b723dd7769e89f32eb137',
+    channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
+    channelSecret: process.env.CHANNEL_SECRET,
 };
 
 const client = new line.Client(config);
 let browser;
 
+const chromium = require('chrome-aws-lambda');
+
 async function startBrowser() {
-    browser = await puppeteer.launch({
-        headless: true,
-        args: ['--no-sandbox', '--disable-setuid-sandbox']
+    browser = await chromium.puppeteer.launch({
+        args: chromium.args,
+        executablePath: await chromium.executablePath,
+        headless: chromium.headless,
     });
-    console.log('Puppeteer browser started');
+    console.log('✅ Puppeteer browser started on Render');
 }
 
 app.post('/webhook', line.middleware(config), (req, res) => {
@@ -177,3 +180,8 @@ app.listen(3000, async () => {
     await startBrowser();
     console.log('🤖 Bot is running on port 3000');
 });
+
+/*const config = {
+    channelAccessToken: '1/8Anxuj6rdoH3f0RMtLCOGTZXdP+lCR4oiyM9fgFs5cL9xaSveEsqiE29p4EYtF9l0mUdsaE3peaIknzAtj+8IQmrLQp77ibqvy5hHUe6DX1SZr69MhkgdUV9GMhtf9DGbT63HcFHH6W+eX2fnZVAdB04t89/1O/w1cDnyilFU=',
+    channelSecret: '2081846d048b723dd7769e89f32eb137',
+};*/
