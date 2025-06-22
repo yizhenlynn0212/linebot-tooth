@@ -2,26 +2,20 @@
   "name": "linebot-tooth",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-  "start": "node index.js"
-},
-"engines": {
-  "node": "18.x"
-},
+  "description": "",
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "18.x"
+  },
   "dependencies": {
     "@line/bot-sdk": "^10.0.0",
     "dayjs": "^1.11.13",
     "express": "^5.1.0",
     "puppeteer": "^24.10.2"
-  }
-  "scripts": {
-  "start": "node index.js"
-  },
-  "engines": {
-  "node": "18.x"
   }
 }
