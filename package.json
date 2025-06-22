@@ -1,0 +1,17 @@
+{
+  "name": "linebot-tooth",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@line/bot-sdk": "^10.0.0",
+    "dayjs": "^1.11.13",
+    "express": "^5.1.0"
+  }
+}
